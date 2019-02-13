@@ -3,8 +3,8 @@ import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 
-import morgan from 'morgan';
-import customLogger from './logger';
+// import morgan from 'morgan';
+// import customLogger from './logger';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import App from './react-app/App';
@@ -12,14 +12,14 @@ import Data from './react-app/usersData';
 // import fs from 'fs';
 // import path from 'path';
 
-const functionName = 'react-express-ssr';
+// const functionName = 'react-express-ssr';
 const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-// Attach logger
-app.use(morgan(customLogger));
+// // Attach logger
+// app.use(morgan(customLogger));
 // app.use(express.static(path.resolve(__dirname, "./Browser")))
 
 type HTMLProps = { body: string; styles?: string; title: string };
@@ -39,10 +39,10 @@ const Html = ({ body, styles, title }: HTMLProps) => {
     </html>
   `;
 };
-const routerBasePath =
-  process.env.NODE_ENV === 'dev'
-    ? `/${functionName}`
-    : `/.netlify/functions/${functionName}/`;
+const routerBasePath = '/';
+// process.env.NODE_ENV === 'dev'
+//   ? `/${functionName}`
+//   : `/.netlify/functions/${functionName}/`;
 
 app.get(routerBasePath, (req, res) => {
   Data().then(users => {
@@ -51,6 +51,7 @@ app.get(routerBasePath, (req, res) => {
       title: 'React SSR!',
       body: reactAppHtml
     });
+    console.log({ html });
     res.send(html);
   });
 });

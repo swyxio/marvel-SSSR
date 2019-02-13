@@ -5,3 +5,8 @@
   publish = "build"
   # functions build directory
   functions = "functions-build"
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/react"
+  status = 200

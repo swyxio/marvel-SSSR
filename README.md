@@ -1,3 +1,9 @@
-# Netlify + Express &nbsp;&nbsp;&nbsp;<a href="https://app.netlify.com/start/deploy?repositoryhttps://github.com/DavidWells/netlify-functions-express"><img src="https://www.netlify.com/img/deploy/button.svg"></a>
+# design goals
 
-Example of using [Express](https://expressjs.com/) with [Netlify functions](https://www.netlify.com/docs/functions/)
+- use zip it and ship it
+- entirely ssr'ed site
+
+to learn:
+
+- SEO compatibiliy
+- cold start/render times?

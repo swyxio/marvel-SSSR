@@ -11,7 +11,7 @@ export const Hello: React.FC<HelloProps> = ({ button }) => {
     <div>
       <p>hi </p>
       {state}
-      {/* <button
+      <button
         onClick={() =>
           fetch('/.netlify/functions/pingapi')
             .then(res => res.json())
@@ -20,7 +20,7 @@ export const Hello: React.FC<HelloProps> = ({ button }) => {
       >
         {' '}
         sldkj
-      </button> */}
+      </button>
       <Link href="/potato">
         <a>go to potato</a>
       </Link>{' '}

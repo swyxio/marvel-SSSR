@@ -12,7 +12,6 @@ import Data from './react-app/usersData';
 // import fs from 'fs';
 // import path from 'path';
 
-// const functionName = 'react-express-ssr';
 const app = express();
 
 app.use(cors());
@@ -34,15 +33,16 @@ const Html = ({ body, styles, title }: HTMLProps) => {
       </head>
       <body style="margin:0">
         <div id="root">${body}</div>
-        <script src="/dev/bundle.js"></script>
-      </body>
-    </html>
-  `;
+        </body>
+        </html>
+        `;
 };
-const routerBasePath = '/';
-// process.env.NODE_ENV === 'dev'
-//   ? `/${functionName}`
-//   : `/.netlify/functions/${functionName}/`;
+// <script src="/dev/bundle.js"></script>
+const functionName = 'react';
+const routerBasePath =
+  process.env.NODE_ENV === 'dev'
+    ? `/${functionName}`
+    : `/.netlify/functions/${functionName}/`;
 
 app.get(routerBasePath, (req, res) => {
   Data().then(users => {

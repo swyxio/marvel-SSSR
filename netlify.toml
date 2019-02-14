@@ -11,7 +11,7 @@
   to = "/.netlify/functions/react"
   status = 200
 
-[[redirects]]
-  from = "/*"
-  to = "/.netlify/functions/react/:splat"
-  status = 200
+#[[redirects]]
+#  from = "/*"
+#  to = "/.netlify/functions/react/:splat"
+#  status = 200

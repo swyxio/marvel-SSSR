@@ -1,17 +1,17 @@
 [build]
   # # no build needed
   # command = "npm run build"
-  # # not serving anything either
-  # publish = "public"
+  # not serving anything either
+  publish = "dist"
   # functions build directory
-  functions = "functions-build"
+  functions = ".netlify/functions"
 
 [[redirects]]
   from = "/"
-  to = "/.netlify/functions/react"
+  to = "/.netlify/functions/pages"
   status = 200
 
-#[[redirects]]
-#  from = "/*"
-#  to = "/.netlify/functions/react/:splat"
-#  status = 200
+[[redirects]]
+  from = "/pages/*"
+  to = "/.netlify/functions/pages/:splat"
+  status = 200

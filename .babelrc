@@ -1,8 +1,15 @@
 {
-    "presets": ['env', 'react'],
-    "plugins": [
-        ["module-resolver", {
-            "root": ["./"],
-        }]
+  "presets": [
+    "@babel/preset-typescript",
+    "next/babel",
+    "@zeit/next-typescript/babel"
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./"]
+      }
     ]
+  ]
 }

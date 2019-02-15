@@ -1,6 +1,6 @@
 import React from 'react';
 // import styled from 'styled-components'
-import Link from 'next/link';
+// import Link from 'next/link';
 
 export type HelloProps = { button?: string };
 export const Hello: React.FC<HelloProps> = ({ button }) => {
@@ -19,11 +19,11 @@ export const Hello: React.FC<HelloProps> = ({ button }) => {
         }
       >
         {' '}
-        sldkj
+        ping API
       </button>
-      <Link href="/potato">
-        <a>go to potato</a>
-      </Link>{' '}
+      <a href="/viewTweet?tweetId=1096094647716335617">
+        <a>go to view tweet</a>
+      </a>{' '}
     </div>
   );
 };

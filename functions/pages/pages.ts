@@ -1,9 +1,6 @@
-// import serverless from 'serverless-http';
-
-// import http from 'http';;
-// const server = new http.Server((req, res) => page.render(req, res));
-
-// exports.handler = serverless(server);
+// // import { APIGatewayEvent, APIGatewayEventRequestContext } from 'aws-lambda';
+// import fetch from 'isomorphic-fetch';
+// import cheerio from 'cheerio';
 import serverless from 'serverless-http';
 import express from 'express';
 import cors from 'cors';
@@ -24,14 +21,29 @@ const routerBasePath =
     ? `/${functionName}`
     : `/.netlify/functions/${functionName}/`;
 
-const page = require('./index');
-app.get(routerBasePath, (req, res) => {
-  console.log({ routerBasePath });
-  return page.render(req, res);
-});
+// const page = require('./index');
+// app.get(routerBasePath, (req, res) => {
+//   console.log({ routerBasePath });
+//   return page.render(req, res);
+// });
 const pota = require('./potato');
-app.get(routerBasePath + 'potato', (req, res) => {
-  console.log({ routerBasePath });
+app.get(routerBasePath + 'potato', async (req, res) => {
+  // const message = await fetch(
+  //   'https://twitter.com/swyx/status/1096268437393821696'
+  // )
+  //   .then(async res => {
+  //     const text = await res.text();
+
+  //     const $ = cheerio.load(text);
+  //     // document.querySelectorAll('.permalink-tweet-container .tweet-text')
+  //     const tweetText = $('.permalink-tweet-container .tweet-text').text();
+  //     return tweetText;
+  //   })
+  //   .catch(err => {
+  //     console.error('error occured with ', err);
+  //     throw new Error(err);
+  //   });
+  // console.log({ routerBasePath });
   return pota.render(req, res);
 });
 

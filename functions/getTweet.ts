@@ -6,7 +6,7 @@ export async function handler(
   context: APIGatewayEventRequestContext
 ) {
   const message = await fetch(
-    'https://twitter.com/swyx/status/1096268437393821696'
+    'https://twitter.com/statuses/1096094647716335617'
   )
     .then(async res => {
       const text = await res.text();
@@ -17,7 +17,7 @@ export async function handler(
       return tweetText;
     })
     .catch(err => {
-      console.error('error occured with ', err);
+      console.error('error2 occured with ', err);
       throw new Error(err);
     });
   return {

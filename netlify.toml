@@ -12,6 +12,11 @@
 #  status = 200
 
 [[redirects]]
+  from = "/.netlify/functions/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+[[redirects]]
   from = "/_next/*"
   to = "/_next/:splat"
   status = 200

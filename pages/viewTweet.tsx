@@ -20,21 +20,39 @@ import Link from 'next/link';
 
 export type HelloProps = { userAgent?: string; message?: string };
 class Hello extends React.Component<HelloProps> {
-  static async getInitialProps({ req, query: { tweetId } }) {
-    const message = await fetch(`https://twitter.com/statuses/${tweetId}`)
-      .then(async res => {
-        const text = await res.text();
+  static async getInitialProps(ctx) {
+    const {
+      req,
+      query: { tweetId }
+    } = ctx;
+    // console.log({
+    //   ctx: Object.keys(ctx.req).map(k => {
+    //     if (typeof ctx.req[k] === 'string') return ctx.req[k];
+    //     if (!!ctx.req[k] && typeof ctx.req[k] === 'object')
+    //       return Object.keys(ctx.req[k]);
+    //     if (typeof ctx.req[k] === 'undefined') return;
+    //   }),
+    //   // ctx2: Object.keys(ctx.res),
+    //   // ctx3: ctx.pathname,
 
-        const $ = cheerio.load(text);
-        // document.querySelectorAll('.permalink-tweet-container .tweet-text')
-        const tweetText = $('.permalink-tweet-container .tweet-text').text();
-        return tweetText;
-      })
-      .catch(err => {
-        console.error('error occured with loading tweet');
-        return 'tweet not found';
-      });
+    //   foo: req.msg
+    // });
+    // const message = await fetch(`https://twitter.com/statuses/${tweetId}`)
+    const message = await fetch(`/.netlify/functions/getTweet`);
+    // .then(async res => {
+    //   const text = await res.text();
+    //   console.log({ text });
+    //   const $ = cheerio.load(text);
+    //   // document.querySelectorAll('.permalink-tweet-container .tweet-text')
+    //   const tweetText = $('.permalink-tweet-container .tweet-text').text();
+    //   return tweetText;
+    // })
+    // .catch(err => {
+    //   console.error('error occured with loading tweet');
+    //   return 'tweet not found';
+    // });
     const userAgent = req ? req.headers['user-agent'] : navigator.userAgent;
+    console.log({ userAgent, message });
     return { userAgent, message };
   }
 

@@ -26,8 +26,9 @@ const routerBasePath =
 //   console.log({ routerBasePath });
 //   return page.render(req, res);
 // });
-const pota = require('./potato');
-app.get(routerBasePath + 'potato', async (req, res) => {
+const pota = require('./viewTweet');
+app.get(routerBasePath + 'viewTweet', async (req, res) => {
+  // const req2 = req as typeof req & { msg: string };
   // const message = await fetch(
   //   'https://twitter.com/swyx/status/1096268437393821696'
   // )
@@ -43,8 +44,9 @@ app.get(routerBasePath + 'potato', async (req, res) => {
   //     console.error('error occured with ', err);
   //     throw new Error(err);
   //   });
-  // console.log({ routerBasePath });
-  return pota.render(req, res);
+  // console.log({ message });
+  // req2.msg = 'potato';
+  return pota.render(req, res, 'potato', 'munchies');
 });
 
 exports.handler = serverless(app);

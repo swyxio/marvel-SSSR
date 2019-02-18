@@ -3,8 +3,9 @@ import React from 'react';
 import fetch from 'isomorphic-fetch';
 import cheerio from 'cheerio';
 
-// import Link from 'next/link';
+import Link from 'next/link';
 
+// export type HelloProps = { button?: string };
 // export const Hello: React.FC<HelloProps> = ({ button }) => {
 //   console.log({ button });
 //   return (
@@ -30,7 +31,7 @@ class Hello extends React.Component<HelloProps> {
         return tweetText;
       })
       .catch(err => {
-        console.error('error occured with ', err);
+        console.error('error occured with loading tweet');
         return 'tweet not found';
       });
     const userAgent = req ? req.headers['user-agent'] : navigator.userAgent;

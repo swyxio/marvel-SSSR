@@ -26,8 +26,8 @@ const routerBasePath =
 //   console.log({ routerBasePath });
 //   return page.render(req, res);
 // });
-const pota = require('./potato');
-app.get(routerBasePath + 'potato', async (req, res) => {
+const pota = require('./viewTweet');
+app.get(routerBasePath + 'viewTweet', async (req, res) => {
   // const message = await fetch(
   //   'https://twitter.com/swyx/status/1096268437393821696'
   // )

@@ -15,7 +15,7 @@
     "next": "^8.0.2-canary.3",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
-    "serverless-http": "^1.6.0"
+    "serverless-http": "^1.9.1"
   },
   "scripts": {
     "start": "cross-env NODE_ENV=dev npm-run-all --parallel start:app start:server",
